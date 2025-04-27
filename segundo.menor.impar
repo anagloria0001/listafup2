@@ -1,0 +1,33 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+#define N 10
+
+int L[N] = {1,2,3,4,5,6,7,8,9,10};
+
+int smimpar;
+
+// -- escreva seu código abaixo dessa linha --- (e não altere esta linha)
+
+
+int main() {
+    int i;
+    int mimpar;
+    
+    mimpar=-1;
+    smimpar=-1;
+    
+    for(i=0;i<N;i++){
+        if(L[i]%2!=0){
+            if(mimpar ==-1 || L[i]<mimpar){//mimpar==-1, para atualizar ela tem que pegar o valor a ela ja atribuida; || significa ou
+                smimpar=mimpar;
+                mimpar=L[i];
+            }else if(smimpar==-1 || L[i]<smimpar){
+                smimpar=L[i];
+            }
+        }
+    }
+    printf("menor impar %d segundo menor impar %d", mimpar, smimpar);
+
+}
+
