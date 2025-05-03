@@ -16,36 +16,42 @@ int main() {
   int smaior;
   maior=L[0];
   smaior=L[1];
-  tmaior=L[2];
+  tmaior=L[3];
   for(i=0;i<N;i++){
       if(L[i]>maior){
         maior=L[i];
       }
-  }  
-  for(i=0;i<N-1;i++){
-      if(L[i+1]>smaior && L[i+1]<maior){
-        smaior=L[i+1];
-      }
-  }    
-  for(i=0;i<N-2;i++){
-      if(L[i+2]>tmaior && L[i+2]<smaior){
-        tmaior=L[i+2];
+  }
+  for(i=0;i<N;i++){
+      if(L[i]>smaior){
+        if(L[i]<maior && L[i]!=maior){
+        smaior=L[i];
+        }
       }
   }
   for(i=0;i<N;i++){
-      if(tmaior>smaior){
-        int t1=smaior;
-        smaior=tmaior;
-        tmaior=t1;
+       if(L[i]>tmaior && L[i]<smaior){
+        if(L[i]!=smaior)
+        tmaior=L[i];
       }
-      if(smaior>maior){
-        int t2=maior;
+  }
+  printf("%d\n", maior);
+  printf("%d\n", smaior);
+  printf("%d\n", tmaior);
+  int t2, t1;
+  t2=0;
+  t1=0;
+  for(i=0;i<N;i++){
+    if(smaior>maior){
+        t2=maior;
         maior=smaior;
         smaior=t2;
       }
-  }  
-    
-printf("%d\n", maior);
-printf("%d\n", smaior);
-printf("%d\n", tmaior);
+      if(tmaior>smaior){
+        t1=smaior;
+        smaior=tmaior;
+        tmaior=t1;
+      }
+  }
+  printf("%d", t1);
 }
